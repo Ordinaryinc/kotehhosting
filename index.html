@@ -13,16 +13,14 @@
         }
 
         body {
-            line-height: 1.6;
-            color: #333;
+            background-color: #f4f4f4;
         }
 
-        /* Header */
         header {
             background-color: #2c3e50;
             color: white;
-            padding: 1rem;
             text-align: center;
+            padding: 2rem;
         }
 
         header h1 {
@@ -30,29 +28,23 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Main Section */
-        .main-section {
+        .container {
             max-width: 800px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
 
-        .intro {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .intro h2 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        /* Booking Form */
-        .booking-form {
-            background-color: #f9f9f9;
+        .booking-section {
+            background-color: white;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         .form-group {
@@ -63,6 +55,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: bold;
+            color: #333;
         }
 
         .form-group input,
@@ -74,43 +67,45 @@
             font-size: 1rem;
         }
 
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2c3e50;
+        }
+
         button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
             background-color: #27ae60;
             color: white;
-            padding: 0.75rem 1.5rem;
             border: none;
             border-radius: 4px;
+            font-size: 1.1rem;
             cursor: pointer;
-            font-size: 1rem;
+            transition: background-color 0.3s;
         }
 
         button:hover {
             background-color: #219653;
         }
 
-        /* Footer */
         footer {
-            background-color: #2c3e50;
-            color: white;
             text-align: center;
             padding: 1rem;
-            position: relative;
+            background-color: #2c3e50;
+            color: white;
+            position: fixed;
             bottom: 0;
             width: 100%;
-            margin-top: 2rem;
         }
 
-        /* Responsive Design */
         @media (max-width: 600px) {
             header h1 {
                 font-size: 1.5rem;
             }
 
-            .main-section {
-                margin: 1rem;
-            }
-
-            .booking-form {
+            .booking-section {
                 padding: 1rem;
             }
         }
@@ -122,78 +117,88 @@
         <p>Khidmat Bekam Sunnah Profesional dengan Harga Berpatutan</p>
     </header>
 
-    <section class="main-section">
-        <div class="intro">
-            <h2>Selamat Datang ke Bekam Sunah Bajet Terengganu</h2>
-            <p>Kami menyediakan perkhidmatan bekam sunnah yang berkualiti dengan harga yang mampu milik. Tempah slot anda sekarang untuk pengalaman kesihatan yang menyegarkan!</p>
-        </div>
-
-        <div class="booking-form">
-            <h3>Tempah Slot Bekam Anda</h3>
+    <div class="container">
+        <section class="booking-section">
+            <h2>Tempah Slot Bekam Anda Sekarang</h2>
             <form id="bookingForm">
                 <div class="form-group">
                     <label for="name">Nama Penuh</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">No. Telefon</label>
+                    <label for="phone">Nombor Telefon</label>
                     <input type="tel" id="phone" name="phone" required>
                 </div>
                 <div class="form-group">
-                    <label for="date">Tarikh</label>
+                    <label for="date">Tarikh Tempahan</label>
                     <input type="date" id="date" name="date" required>
                 </div>
                 <div class="form-group">
-                    <label for="time">Masa</label>
+                    <label for="time">Masa Tempahan</label>
                     <select id="time" name="time" required>
-                        <option value="" disabled selected>Pilih masa</option>
-                        <option value="09:00">9:00 AM</option>
-                        <option value="10:00">10:00 AM</option>
-                        <option value="11:00">11:00 AM</option>
-                        <option value="14:00">2:00 PM</option>
-                        <option value="15:00">3:00 PM</option>
-                        <option value="16:00">4:00 PM</option>
+                        <option value="">Pilih Masa</option>
+                        <option value="9:00 AM">9:00 Pagi</option>
+                        <option value="10:00 AM">10:00 Pagi</option>
+                        <option value="11:00 AM">11:00 Pagi</option>
+                        <option value="2:00 PM">2:00 Petang</option>
+                        <option value="3:00 PM">3:00 Petang</option>
+                        <option value="4:00 PM">4:00 Petang</option>
                     </select>
                 </div>
-                <button type="submit">Tempah Sekarang</button>
+                <div class="form-group">
+                    <label for="package">Pakej Bekam</label>
+                    <select id="package" name="package" required>
+                        <option value="">Pilih Pakej</option>
+                        <option value="Pakej Asas (RM30)">Pakej Asas (RM30)</option>
+                        <option value="Pakej Standard (RM50)">Pakej Standard (RM50)</option>
+                        <option value="Pakej Premium (RM80)">Pakej Premium (RM80)</option>
+                    </select>
+                </div>
+                <button type="submit">Hantar Tempahan</button>
             </form>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <footer>
-        <p>&copy; 2025 Bekam Sunah Bajet Terengganu. Hubungi kami: 012-3456789 | email@bekamsunah.com</p>
+        <p>&copy; 2025 Bekam Sunah Bajet Terengganu. Hubungi: 010-9222876</p>
     </footer>
 
     <script>
-        document.getElementById('bookingForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+        const form = document.getElementById('bookingForm');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
 
+            // Get form values
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const date = document.getElementById('date').value;
             const time = document.getElementById('time').value;
+            const package = document.getElementById('package').value;
 
-            // Simpan data ke localStorage (atau boleh dihantar ke server)
-            const bookingData = {
-                name,
-                phone,
-                date,
-                time
-            };
+            // Format the message
+            const message = `Tempahan Baru:%0A%0ANama: ${name}%0ANo. Telefon: ${phone}%0ATarikh: ${date}%0AMasa: ${time}%0APakej: ${package}`;
 
-            // Simulasi penyimpanan data
-            localStorage.setItem('booking_' + Date.now(), JSON.stringify(bookingData));
+            // WhatsApp number
+            const whatsappNumber = '60109222876'; // Format with country code
 
-            // Berikan maklum balas kepada pengguna
-            alert(`Terima kasih ${name}! Tempahan anda untuk ${date} pada ${time} telah diterima. Kami akan menghubungi anda melalui ${phone} untuk pengesahan.`);
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
 
-            // Reset borang
-            this.reset();
+            // Open WhatsApp in new tab
+            window.open(whatsappURL, '_blank');
+
+            // Reset form
+            form.reset();
+
+            // Show confirmation
+            alert('Tempahan anda telah dihantar melalui WhatsApp. Kami akan menghubungi anda secepat mungkin!');
         });
 
-        // Tetapkan tarikh minimum kepada hari ini
+        // Set minimum date to today
+        const dateInput = document.getElementById('date');
         const today = new Date().toISOString().split('T')[0];
-        document.getElementById('date').setAttribute('min', today);
+        dateInput.setAttribute('min', today);
     </script>
 </body>
 </html>
